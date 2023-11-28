@@ -169,7 +169,7 @@ app.post("/api/v1/details", (req, res) => {
   }
 
   // Increment the id for the new user
-  const newUserId = userDetails.length > 0 ? userDetails[userDetails.length - 1].id + 1; // : 1;
+  const newUserId = userDetails.length > 0 ? userDetails[userDetails.length - 1].id + 1 : 1;
 
   // Create a new user object
   const newUser = {
