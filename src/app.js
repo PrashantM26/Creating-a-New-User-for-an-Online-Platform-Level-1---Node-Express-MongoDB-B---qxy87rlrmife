@@ -191,9 +191,6 @@ app.post("/api/v1/details", (req, res) => {
         newUser,
       },
     });
-    if(err) {
-      console.log(err);
-    }
   });
 });
 
