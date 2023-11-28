@@ -183,15 +183,17 @@ app.post("/api/v1/details", (req, res) => {
   userDetails.push(newUser);
 
   // Update the userDetails.json file with the new data
-  fs.writeFileSync(`${__dirname}/data/userDetails.json`, JSON.stringify(userDetails));
-
-  // Send the response
-  res.status(201).json({
-    status: "success",
-    message: "User registered successfully",
-    data: {
-      newUser,
-    },
+  fs.writeFile(`${__dirname}/data/userDetails.json`, JSON.stringify(userDetails), (err) => {
+    res.status(201).json({
+      status: "success",
+      message: "User registered successfully",
+      data: {
+        newUser,
+      },
+    });
+    if(err) {
+      console.log(err);
+    }
   });
 });
 
