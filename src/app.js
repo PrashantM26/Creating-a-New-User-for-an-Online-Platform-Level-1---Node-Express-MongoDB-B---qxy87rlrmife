@@ -169,7 +169,7 @@ app.post("/api/v1/details", (req, res) => {
   }
 
   // Increment the id for the new user
-  const newUserId = userDetails.length > 0 ? userDetails[userDetails.length - 1].id + 1 : 1;
+  const newUserId = userDetails.length > 0 ? userDetails[userDetails.length - 1].id + 1; // : 1;
 
   // Create a new user object
   const newUser = {
@@ -185,10 +185,10 @@ app.post("/api/v1/details", (req, res) => {
   // Update the userDetails.json file with the new data
   fs.writeFile(`${__dirname}/data/userDetails.json`, JSON.stringify(userDetails), (err) => {
     res.status(201).json({
-      status: "success",
+      status: "Success",
       message: "User registered successfully",
       data: {
-        newUser,
+        userDetails: newUser,
       },
     });
   });
@@ -197,7 +197,7 @@ app.post("/api/v1/details", (req, res) => {
 // GET endpoint for sending the details of users
 app.get("/api/v1/details", (req, res) => {
   res.status(200).json({
-    status: "success",
+    status: "Success",
     message: "Detail of users fetched successfully",
     data: {
       userDetails,
@@ -218,7 +218,7 @@ app.get("/api/v1/userdetails/:id", (req, res) => {
   } else {
     res.status(200).json({
       status: "success",
-      message: "Details of user fetched successfully",
+      message: "Details of users fetched successfully",
       data: {
         details,
       },
