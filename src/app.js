@@ -198,7 +198,7 @@ app.post("/api/v1/details", (req, res) => {
 app.get("/api/v1/details", (req, res) => {
   res.status(200).json({
     status: "success",
-    message: "Details of users fetched successfully",
+    message: "Detail of users fetched successfully",
     data: {
       userDetails,
     },
@@ -213,7 +213,7 @@ app.get("/api/v1/userdetails/:id", (req, res) => {
   if (!details) {
     return res.status(404).json({
       status: "failed",
-      message: "User not found!",
+      message: "Product not found!",
     });
   } else {
     res.status(200).json({
