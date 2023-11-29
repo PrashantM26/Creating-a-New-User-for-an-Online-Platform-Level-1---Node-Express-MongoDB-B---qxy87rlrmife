@@ -161,12 +161,12 @@ app.post("/api/v1/details", (req, res) => {
   const { name, mail, number } = req.body;
 
   // Validate user data
-  if (!name || !mail || !number) {
+  /*if (!name || !mail || !number) {
     return res.status(400).json({
       status: "failed",
       message: "Invalid user data. Please provide name, mail, and number.",
     });
-  }
+  }*/
 
   // Increment the id for the new user
   const newUserId = userDetails.length > 0 ? userDetails[userDetails.length - 1].id + 1 : 1;
